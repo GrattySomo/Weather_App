@@ -2,6 +2,7 @@ body {
   background: rgba(159, 116, 176, 0.3);
   font-family: "Roboto", sans-serif;
   background-image: url("clouds.PNG");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 .app {
