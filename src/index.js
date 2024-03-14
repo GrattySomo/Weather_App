@@ -56,7 +56,17 @@ function handleSubmit(event) {
 
   searchCity(searchInput.value);
 }
-function displayForecast() {
+
+function getForecastdata(city) {
+  let apiKey = `t919a78cf1d84obb72b8a3dcb00e6c94`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+
+  console.log(apiUrl);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
 
@@ -75,11 +85,11 @@ function displayForecast() {
   });
 
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHTML; // Corrected assignment operator
+  forecastElement.innerHTML = forecastHTML;
 }
-
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
 
 searchCity("Paris");
+getForecastdata("Paris");
 displayForecast();
