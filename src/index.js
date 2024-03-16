@@ -19,6 +19,8 @@ function refreshWeather(response) {
   iconElement.innerHTML = `
     <img
       src="${response.data.condition.icon_url}"class="app-icon" />`;
+
+  getForecastdata(response.data.city);
 }
 
 function formatDate(date) {
@@ -91,5 +93,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
 
 searchCity("Paris");
-getForecastdata("Paris");
-displayForecast();
